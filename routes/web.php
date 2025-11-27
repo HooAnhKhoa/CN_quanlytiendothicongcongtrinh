@@ -27,7 +27,7 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
 Route::post('/login', [AuthController::class, 'login']);
 Route::get('/register', [AuthController::class, 'showRegister'])->name('register');
-Route::post('/register', [AuthController::class, 'register']);
+Route::post('/register', [AuthController::class, 'store']);
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('/project', [ProjectController::class, 'index'])->name('project');
 
@@ -49,3 +49,11 @@ Route::resource('documents', DocumentController::class);
 Route::resource('drawings', DrawingController::class);
 Route::resource('contracts', ContractController::class);
 Route::resource('payments', PaymentController::class);
+
+// Profile routes
+Route::middleware(['auth'])->group(function () {
+    Route::get('/profile', [UserController::class, 'profile'])->name('profile');
+    Route::post('/profile/avatar', [UserController::class, 'updateAvatar'])->name('profile.avatar');
+    Route::post('/profile/update', [UserController::class, 'updateProfile'])->name('profile.update');
+    Route::post('/profile/password', [UserController::class, 'changePassword'])->name('profile.password');
+});
