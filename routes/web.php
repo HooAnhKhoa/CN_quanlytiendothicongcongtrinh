@@ -31,6 +31,8 @@ Route::post('/register', [AuthController::class, 'register']);
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('/project', [ProjectController::class, 'index'])->name('project');
 Route::get('/sites', [ProjectController::class, 'index'])->name('sites');
+Route::get('/tasks', [TaskController::class, 'index'])->name('tasks');
+Route::get('/users', [UserController::class, 'index'])->name('users');
 
 
 // Resource Routes

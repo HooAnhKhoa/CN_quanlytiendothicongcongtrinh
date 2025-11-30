@@ -30,7 +30,7 @@
                                     <p class="text-xs text-gray-500 capitalize">{{ auth()->user()->user_type }}</p>
                                 </div>
                                 <a 
-                                    href="{{ route('users.show', auth()->id()) }}" 
+                                    href="{{ route('users.index', auth()->id()) }}" 
                                     class="flex items-center px-4 py-2 text-gray-700 hover:bg-gray-100 transition-colors"
                                 >
                                     <i class="fas fa-user mr-3 w-4 text-center"></i>

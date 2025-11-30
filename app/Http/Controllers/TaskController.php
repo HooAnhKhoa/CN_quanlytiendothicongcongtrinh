@@ -10,7 +10,9 @@ class TaskController extends Controller
 {
     public function index()
     {
-        $tasks = Task::with(['site.project'])->latest()->get();
+        $tasks = Task::with(['site.project'])
+            ->latest()
+            ->paginate(12);;
         return view('tasks.index', compact('tasks'));
     }
 
